@@ -1,6 +1,6 @@
 # Unimatrix One Runners
 
-Provides an Ansible play to provisions the runners used
+Provides an Ansible play to provision the runners used
 by the Unimatrix One cluster.
 
 The Unixmatrix One cluster uses virtual machines to run
