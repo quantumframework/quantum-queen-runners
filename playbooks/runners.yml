@@ -1,0 +1,6 @@
+---
+- hosts: "{{ UM_RUNNERS_GRP|default('unimatrix.runners') }}"
+  tasks:
+  - name: "Print out a debug message stating that this playbook does nothing"
+    debug:
+      msg: "This playbook is not implemented."
