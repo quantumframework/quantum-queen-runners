@@ -1,8 +1,11 @@
 ---
-- name: claim ownership of Yum
+- name: claim ownership of yum
   file:
     path: /var/run/yum.pid
     state: absent
+
+- name: complete existing yum transactions
+  command: yum-complete-transaction --cleanup-only
 
 - name: updated packages
   yum:
