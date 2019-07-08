@@ -9,6 +9,7 @@
   command: yum-complete-transaction --cleanup-only
 
 - name: updated packages
+  when: force_package_updates|default(False)
   yum:
     state: latest
     name: "*"
