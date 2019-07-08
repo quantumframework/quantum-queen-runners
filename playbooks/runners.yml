@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ UM_RUNNERS_GRP|default('unimatrix.runners') }}"
+- hosts: "{{ UM_RUNNERS_GRP|default('unimatrix_runners') }}"
   tasks:
   - name: "Print out a debug message stating that this playbook does nothing"
     debug:
