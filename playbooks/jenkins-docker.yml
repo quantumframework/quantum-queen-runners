@@ -1,0 +1,5 @@
+---
+- hosts: "{{ UM_RUNNERS_GRP|default('jenkins') }}"
+  roles:
+  - jenkins-slave
+  - jenkins-docker-slave
