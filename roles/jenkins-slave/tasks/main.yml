@@ -1,4 +1,9 @@
 ---
+- name: updated packages
+  yum:
+    state: latest
+    name: "*"
+
 - name: created Jenkins user
   user:
     name: jenkins
