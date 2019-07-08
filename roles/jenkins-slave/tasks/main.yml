@@ -1,0 +1,29 @@
+---
+- name: created Jenkins user
+  user:
+    name: jenkins
+    state: present
+
+- name: installed basic Jenkins slave dependencies
+  yum:
+    update_cache: true
+    name:
+    - git
+    - java-1.8.0-openjdk
+    - yum-utils
+    - lvm2
+    - device-mapper-persistent-data
+    state: present
+
+- name: added SSH key for Jenkins master
+  authorized_key:
+    user: jenkins
+    state: present
+    key: "{{ jenkins_openssh_public_key }}"
+
+- name: restored SELinux context
+  command: restorecon -v
+  changed_when: false
+  args:
+    chdir: /home/jenkins
+    creates: /home/jenkins/.ssh/id_rsa.pub
