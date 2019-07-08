@@ -1,4 +1,9 @@
 ---
+- name: claim ownership of Yum
+  file:
+    path: /var/run/yum.pid
+    state: absent
+
 - name: updated packages
   yum:
     state: latest
