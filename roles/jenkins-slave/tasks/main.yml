@@ -1,19 +1,4 @@
 ---
-- name: claim ownership of yum
-  file:
-    path: /var/run/yum.pid
-    state: absent
-
-- name: complete existing yum transactions
-  changed_when: false
-  command: yum-complete-transaction --cleanup-only
-
-- name: updated packages
-  when: force_package_updates|default(False)
-  yum:
-    state: latest
-    name: "*"
-
 - name: created Jenkins user
   user:
     name: jenkins
