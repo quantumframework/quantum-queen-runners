@@ -1,6 +1,11 @@
 ---
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
+  - name: install Yum bindings
+    yum:
+      state: present
+      name: python-yum
+
   - name: installed dnf
     vars:
       ansible_python_interpreter: /usr/bin/python
