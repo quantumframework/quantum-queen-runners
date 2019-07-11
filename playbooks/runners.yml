@@ -4,7 +4,9 @@
   - name: install dnf
     yum:
       state: present
-      name: dnf
+      name:
+      - dnf
+      - python3-dnf
 
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   vars:
