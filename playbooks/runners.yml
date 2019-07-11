@@ -13,7 +13,7 @@
       - lxml==4.3.4
       - requests==2.22.0
       - quantum-queen==1.0.3
-      - openshift==0.8.1
+      - openshift==0.9.0
     pip:
       state: present
       name: "{{ packages }}"
