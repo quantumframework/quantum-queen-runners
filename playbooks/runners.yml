@@ -1,7 +1,7 @@
 ---
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
-  - name: install build dependencies
+  - name: installed build dependencies
     apt:
       name: [gcc]
 
