@@ -6,6 +6,7 @@
       name:
       - gcc
       - python3-pip
+      - python-pip
 
   - name: installed common dependencies
     vars:
