@@ -6,9 +6,16 @@
       name:
       - gcc
       - python3-pip
+
+      # Also install pip for python 2 -- although deprecated,
+      # some Ansible modules do not work well with Python 3
+      # yet (e.g. k8s_facts).
       - python-pip
 
   - name: installed common dependencies
+    with_items:
+    - pip3
+    - pip2
     vars:
       packages:
       - lxml==4.3.4
@@ -18,3 +25,4 @@
     pip:
       state: present
       name: "{{ packages }}"
+      executable: "{{ item }}"
