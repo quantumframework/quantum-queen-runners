@@ -1,6 +1,28 @@
 ---
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
-  - name: "Print out a debug message stating that this playbook does nothing"
-    debug:
-      msg: "This playbook is not implemented."
+  - name: "installed IUS repository"
+    yum:
+      state: present
+      name: https://centos7.iuscommunity.org/ius-release.rpm
+
+  - name: "installed Python 3"
+    with_items:
+    - python36u
+    - python36u-libs
+    - python36u-devel
+    - python36u-pip
+    yum:
+      update_cache: true
+      state: present
+      name: "{{ item }}"
+
+  - name: install common dependencies
+    with_items:
+    - lxml==4.3.4
+    - requests==2.22.0
+    - quantum-queen==1.0.3
+    - openshift==0.8.1
+    pip:
+      state: present
+      name: "{{ item }}"
