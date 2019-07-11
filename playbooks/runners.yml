@@ -1,38 +1,6 @@
 ---
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
-  - name: install Yum bindings
-    yum:
-      state: present
-      name: python-yum
-
-  - name: installed dnf
-    vars:
-      ansible_python_interpreter: /usr/bin/python
-    yum:
-      state: present
-      name: dnf
-
-- hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
-  tasks:
-
-  - name: "installed IUS repository"
-    dnf:
-      state: present
-      name: https://centos7.iuscommunity.org/ius-release.rpm
-
-  - name: "installed Python 3"
-    vars:
-      packages:
-      - python36
-      - python36-libs
-      - python36-devel
-      - python36-pip
-      - python36-setuptools
-    dnf:
-      state: present
-      name: "{{ packages }}"
-
   - name: installed common dependencies
     vars:
       packages:
@@ -43,4 +11,3 @@
     pip:
       state: present
       name: "{{ packages }}"
-      executable: pip-3.6
