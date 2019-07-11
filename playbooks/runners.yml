@@ -9,19 +9,6 @@
   - name: "installed Python 3"
     vars:
       packages:
-      - python36u
-      - python36u-libs
-      - python36u-devel
-      - python36u-pip
-      - python36u-setuptools
-    yum:
-      update_cache: true
-      state: absent
-      name: "{{ packages }}"
-
-  - name: "installed Python 3"
-    vars:
-      packages:
       - python36
       - python36-libs
       - python36-devel
@@ -33,11 +20,13 @@
       name: "{{ packages }}"
 
   - name: install common dependencies
-    with_items:
-    - lxml==4.3.4
-    - requests==2.22.0
-    - quantum-queen==1.0.3
-    - openshift==0.8.1
+    vars:
+      packages:
+      - lxml==4.3.4
+      - requests==2.22.0
+      - quantum-queen==1.0.3
+      - openshift==0.8.1
     pip:
       state: present
-      name: "{{ item }}"
+      name: "{{ packages }}"
+      executable: pip-3.6
