@@ -3,7 +3,9 @@
   tasks:
   - name: installed build dependencies
     apt:
-      name: [gcc]
+      name:
+      - gcc
+      - python3-pip
 
   - name: installed common dependencies
     vars:
