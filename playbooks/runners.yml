@@ -1,6 +1,16 @@
 ---
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
+  - name: installed dnf
+    vars:
+      ansible_python_interpreter: /usr/bin/python
+    yum:
+      state: present
+      name: dnf
+
+- hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
+  tasks:
+
   - name: "installed IUS repository"
     dnf:
       state: present
@@ -18,7 +28,7 @@
       state: present
       name: "{{ packages }}"
 
-  - name: install common dependencies
+  - name: installed common dependencies
     vars:
       packages:
       - lxml==4.3.4
