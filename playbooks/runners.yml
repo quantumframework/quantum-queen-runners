@@ -2,7 +2,7 @@
 - hosts: "{{ UM_RUNNERS_GRP|default('runners') }}"
   tasks:
   - name: "installed IUS repository"
-    yum:
+    dnf:
       state: present
       name: https://centos7.iuscommunity.org/ius-release.rpm
 
@@ -14,8 +14,7 @@
       - python36-devel
       - python36-pip
       - python36-setuptools
-    yum:
-      update_cache: true
+    dnf:
       state: present
       name: "{{ packages }}"
 
