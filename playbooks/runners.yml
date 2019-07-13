@@ -3,6 +3,7 @@
   tasks:
   - name: installed build dependencies
     apt:
+      update_cache: true
       name:
       - gcc
       - python3-pip
