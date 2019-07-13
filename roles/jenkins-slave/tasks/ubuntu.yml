@@ -1,0 +1,11 @@
+---
+- name: installed basic Jenkins slave dependencies
+  apt:
+    update_cache: true
+    name:
+    - git
+    - java-1.8.0-openjdk
+    - yum-utils
+    - lvm2
+    - device-mapper-persistent-data
+    state: present
