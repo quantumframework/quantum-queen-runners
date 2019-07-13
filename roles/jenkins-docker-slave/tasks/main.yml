@@ -1,13 +1,5 @@
 ---
-- name: added Docker Yum repository
-  get_url:
-    url: https://download.docker.com/linux/centos/docker-ce.repo
-    dest: /etc/yum.repos.d/docker-ce.repo
-
-- name: installed Docker
-  yum:
-    name: docker-ce
-    state: latest
+- include_tasks: "{{ ansible_os_family|lower }}.yml"
 
 - name: started Docker and enabled at boot
   service:

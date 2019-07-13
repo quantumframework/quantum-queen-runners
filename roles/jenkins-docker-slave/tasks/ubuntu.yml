@@ -1,0 +1,14 @@
+---
+- name: install dependencies
+  apt:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg-agent
+  - software-properties-common
+
+- name: add the Docker signing key
+  apt_key:
+    data: "{{ lookup('url', 'https://download.docker.com/linux/ubuntu/gpg ') }}"
+    state: present
+
