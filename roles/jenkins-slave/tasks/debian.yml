@@ -4,7 +4,7 @@
     update_cache: true
     name:
     - git
-    - java-1.8.0-openjdk
+    - openjdk-8-jre-headless
     - yum-utils
     - lvm2
     - device-mapper-persistent-data
