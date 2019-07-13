@@ -10,7 +10,7 @@
 
 - name: added the Docker signing key
   apt_key:
-    data: "{{ lookup('url', 'https://download.docker.com/linux/ubuntu/gpg ') }}"
+    url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
 
 - name: added the Docker repository
