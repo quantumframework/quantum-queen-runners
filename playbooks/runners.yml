@@ -21,7 +21,7 @@
       packages:
       - lxml==4.3.4
       - requests==2.22.0
-      - quantum-queen==1.0.3
+      - quantum-queen==1.0.5
       - openshift==0.9.0
       - google-auth==1.3.0
     pip:
