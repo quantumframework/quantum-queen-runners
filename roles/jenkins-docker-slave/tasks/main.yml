@@ -1,5 +1,5 @@
 ---
-- include_tasks: "{{ ansible_os_family|lower }}.yml"
+- import_tasks: "{{ ansible_os_family|lower }}.yml"
 
 - name: started Docker and enabled at boot
   service:
